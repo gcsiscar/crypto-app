@@ -1,87 +1,78 @@
 import {
+  Button,
+  Flex,
+  Image,
+  Text,
   Box,
   Container,
-  Grid,
-  GridItem,
-  HStack,
   Heading,
-  VStack,
-} from '@chakra-ui/layout';
-import { Button, Image, Text } from '@chakra-ui/react';
+} from '@chakra-ui/react';
 import React from 'react';
-import iconOne from '../assets/icons/Icon1.svg';
-import iconTwo from '../assets/icons/Icon2.svg';
-import iconThree from '../assets/icons/Icon3.svg';
+import { GlobeIcon } from '../assets/icons/GlobeIcon';
+import { GraphIcon } from '../assets/icons/GraphIcon';
+import { ProfileIcon } from '../assets/icons/ProfileIcon';
 import bgTwo from '../assets/images/bg2.png';
+import { NumbersCard } from '../common/components/NumbersCard';
+import bg from '../assets/images/Component_2.png';
 
 export const AboutUs = () => {
   return (
-    <Box as="section" py="5rem" bg="brand.primary" color="white" zIndex="0">
-      <Container maxW="1200px">
-        <Grid
-          templateColumns="repeat(6,1fr)"
-          templateAreas={`
-          "one one two two three three"
-          "img img img content content content" 
-        `}
-          columnGap="5rem"
-          rowGap="5rem"
-        >
-          <GridItem gridArea="one">
-            <HStack spacing="2rem">
-              <Image src={iconOne} />
-              <Box>
-                <Heading fontSize="40px" fontWeight="700">
-                  $30B
-                </Heading>
-                <Text color="#E0E0E0" lineHeight="28px">
-                  Digital Currency Exchanged
-                </Text>
-              </Box>
-            </HStack>
-          </GridItem>
-          <GridItem gridArea="two">
-            <HStack spacing="2rem">
-              <Image src={iconTwo} />
-              <Box>
-                <Heading fontSize="40px" fontWeight="700">
-                  10M+
-                </Heading>
-                <Text color="#E0E0E0" lineHeight="28px">
-                  Trusted Wallets Investor
-                </Text>
-              </Box>
-            </HStack>
-          </GridItem>
-          <GridItem gridArea="three">
-            <HStack spacing="2rem">
-              <Image src={iconThree} />
-              <Box>
-                <Heading fontSize="40px" fontWeight="700">
-                  195
-                </Heading>
-                <Text color="#E0E0E0" lineHeight="28px">
-                  Countries Supported
-                </Text>
-              </Box>
-            </HStack>
-          </GridItem>
-          <GridItem gridArea="img">
+    <Box
+      as="section"
+      py={24}
+      bg="brand.primary"
+      color="#fff"
+      backgroundImage={bg}
+      backgroundRepeat="no-repeat"
+      backgroundPosition="bottom center"
+    >
+      <Container maxW="container.xl">
+        <Flex alignItems="center" justifyContent="space-between" mb={24}>
+          <NumbersCard
+            icon={<GraphIcon boxSize={20} />}
+            title="$30B"
+            text="Digital Currency Exchanged"
+          />
+          <NumbersCard
+            icon={<ProfileIcon boxSize={20} />}
+            title="10M+"
+            text="Trusted Wallets Investor"
+          />
+          <NumbersCard
+            icon={<GlobeIcon boxSize={20} />}
+            title="195"
+            text="Countries Supported"
+          />
+        </Flex>
+
+        <Flex alignItems="center" justifyContent="space-between">
+          <Box>
             <Image src={bgTwo} />
-          </GridItem>
-          <GridItem gridArea="content" alignSelf="center">
-            <VStack alignItems="start" justifyContent="center" spacing="2rem">
-              <Heading lineHeight="60px">
+          </Box>
+
+          <Box>
+            <Flex direction="column" alignItems="start" justifyContent="center">
+              <Heading mb={6}>
                 Why you should choose <br /> CRYPTO
               </Heading>
-              <Text color="#E0E0E0" lineHeight="28px">
+              <Text color="#E0E0E0" mb={8}>
                 Experience the next generation cryptocurrency <br /> platform.
                 No financial borders, extra fees, and fake <br /> reviews.
               </Text>
-              <Button>Learn More</Button>
-            </VStack>
-          </GridItem>
-        </Grid>
+              <Button
+                bg="brand.accent"
+                px={6}
+                py={4}
+                _hover={{
+                  bg: '#fff',
+                  color: 'brand.primary',
+                }}
+              >
+                Learn More
+              </Button>
+            </Flex>
+          </Box>
+        </Flex>
       </Container>
     </Box>
   );

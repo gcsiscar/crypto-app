@@ -1,31 +1,58 @@
 import { extendTheme } from '@chakra-ui/react';
 
+// button common size is 18px and one 16px
 const Button = {
   baseStyle: {
-    fontWeight: '500',
-    borderRadius: '2rem',
-  },
-  sizes: {
-    md: {
-      fontSize: '1rem',
-      padding: '1em 1.5em',
+    borderRadius: 'full',
+    fontWeight: 'medium',
+    _focus: {
+      boxShadow: 'none',
     },
   },
-  variants: {
-    primary: {
-      bg: 'brand.accent',
-      color: 'white',
+};
+
+const Link = {
+  baseStyle: {
+    _hover: {
+      textDecoration: 'none',
+    },
+  },
+};
+
+const Heading = {
+  baseStyle: {
+    fontWeight: 'bold',
+  },
+  sizes: {
+    sm: {
+      fontSize: '2rem',
+      lineHeight: '1.5',
+    },
+    md: {
+      fontSize: '2.5rem',
+      lineHeight: '1.5',
+    },
+    lg: {
+      fontSize: '4rem',
     },
   },
   defaultProps: {
     size: 'md',
-    variant: 'primary',
+  },
+};
+
+const Text = {
+  baseStyle: {
+    lineHeight: '1.75',
   },
 };
 
 export const theme = extendTheme({
   components: {
     Button,
+    Link,
+    Heading,
+    Text,
   },
   colors: {
     brand: {

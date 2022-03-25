@@ -1,57 +1,58 @@
-import { Input } from '@chakra-ui/input';
+import React from 'react';
 import {
+  Input,
+  Button,
+  Text,
   Box,
   Container,
   Flex,
-  VStack,
   Heading,
-  Spacer,
-  HStack,
-} from '@chakra-ui/layout';
-import { Button, Text } from '@chakra-ui/react';
-import React from 'react';
+} from '@chakra-ui/react';
+import ethBg from '../assets/images/eth_bg.png';
+import btcBg from '../assets/images/btc_bg.png';
 
 export const StartMining = () => {
   return (
     <Box
       as="section"
-      color="white"
+      color="#fff"
       bg="linear-gradient(180deg, #2B076E 0%, #0D0D2B 100%)"
-      py="5em"
+      py={20}
     >
-      <Container maxW="1200px">
-        <Box p="2.75em" bg="brand.accent" borderRadius="1rem">
-          <Flex justifyContent="space-between">
-            <VStack alignItems="start" spacing="1rem">
-              <Heading
-                as="h3"
-                fontFamily="Rubik"
-                fontWeight="700"
-                fontSize="2rem"
-                lineHeight="2.5rem"
-              >
+      <Container maxW="container.xl">
+        <Box
+          p={12}
+          bg="brand.accent"
+          borderRadius="1rem"
+          bgImage={`url(${ethBg}), url(${btcBg})`}
+          bgRepeat="no-repeat, no-repeat"
+          bgPosition="left 1.25rem center, right bottom"
+        >
+          <Flex alignItems="center" justifyContent="space-between">
+            <Box>
+              <Heading size="sm" mb={4}>
                 Start mining now
               </Heading>
               <Text>
                 Join now with CRAPPO to get the latest news <br /> and start
                 mining now
               </Text>
-            </VStack>
-            <Spacer />
-            <HStack spacing="2.5rem">
+            </Box>
+            <Box>
               <Input
                 width="350px"
                 placeholder="Enter your email"
                 variant="flushed"
                 _placeholder={{
-                  color: 'white',
+                  color: '#fff',
                   opacity: 1,
                 }}
+                mr={10}
               ></Input>
-              <Button bg="white" color="brand.primary">
+              <Button bg="#fff" color="brand.primary">
                 Subscribe
               </Button>
-            </HStack>
+            </Box>
           </Flex>
         </Box>
       </Container>

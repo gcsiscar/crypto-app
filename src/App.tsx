@@ -1,23 +1,16 @@
 import * as React from 'react';
-import { ChakraProvider } from '@chakra-ui/react';
 
+import { ChakraProvider } from '@chakra-ui/react';
 import { theme } from './theme/theme';
-import { Header } from './module/Header';
-import { Main } from './module/Main';
-import { Footer } from './module/Footer';
-import { AboutUs } from './module/AboutUs';
-import { TradeSecurely } from './module/TradeSecurely';
-import { Features } from './module/Features';
-import { StartMining } from './module/StartMining';
+import { Home } from './pages/Home';
+import { Routes, Route } from 'react-router-dom';
+import { Dashboard } from './pages/Dashboard';
 
 export const App = () => (
   <ChakraProvider theme={theme}>
-    <Header />
-    <Main />
-    <AboutUs />
-    <TradeSecurely />
-    <Features />
-    <StartMining />
-    <Footer />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="dashboard" element={<Dashboard />} />
+    </Routes>
   </ChakraProvider>
 );
